@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPHS 2015 - 10 Year Reunion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-primary {
+            background-color: #1a5632;
+        }
+        
+        .bg-secondary {
+            background-color: #d4af37;
+        }
+        
+        .text-primary {
+            color: #1a5632;
+        }
+        
+        .text-secondary {
+            color: #d4af37;
+        }
+        
+        .border-secondary {
+            border-color: #d4af37;
+        }
+        
+        .hover\:bg-secondary:hover {
+            background-color: #d4af37;
+        }
+        
+        .hover\:text-secondary:hover {
+            color: #d4af37;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #d4af37;
+            border: 4px solid #1a5632;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: rotate(2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .polaroid:nth-child(even) {
+            transform: rotate(-2deg);
+        }
+        
+        .polaroid:nth-child(even):hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-primary text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-graduation-cap text-3xl text-secondary"></i>
+                <span class="heading-font text-2xl font-bold">KPHS Class of 2015</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="hover:text-secondary transition">Home</a>
+                <a href="#about" class="hover:text-secondary transition">About</a>
+                <a href="#schedule" class="hover:text-secondary transition">Schedule</a>
+                <a href="#gallery" class="hover:text-secondary transition">Gallery</a>
+                <a href="#rsvp" class="hover:text-secondary transition">RSVP</a>
+            </div>
+            <div class="md:hidden">
+                <button class="mobile-menu-button focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-primary pb-4 px-4">
+            <a href="#home" class="block py-2 hover:text-secondary transition">Home</a>
+            <a href="#about" class="block py-2 hover:text-secondary transition">About</a>
+            <a href="#schedule" class="block py-2 hover:text-secondary transition">Schedule</a>
+            <a href="#gallery" class="block py-2 hover:text-secondary transition">Gallery</a>
+            <a href="#rsvp" class="block py-2 hover:text-secondary transition">RSVP</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-primary text-white py-20">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+            <h1 class="heading-font text-5xl md:text-7xl font-bold mb-6">
+                <span class="text-secondary">10 Year</span> Reunion
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl">
+                Celebrating a decade of memories, achievements, and friendships since we walked those halls together.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#rsvp" class="bg-secondary text-primary font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 transform hover:scale-105">
+                    RSVP Now
+                </a>
+                <a href="#gallery" class="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition duration-300 transform hover:scale-105">
+                    Memory Lane
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold mb-8 text-primary">
+                The Countdown Begins
+            </h2>
+            <div class="flex justify-center space-x-4 md:space-x-8">
+                <div class="bg-white rounded-lg shadow-lg p-4 w-20 md:w-24">
+                    <div class="text-3xl md:text-4xl font-bold text-primary" id="countdown-days">00</div>
+                    <div class="text-gray-600">Days</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-4 w-20 md:w-24">
+                    <div class="text-3xl md:text-4xl font-bold text-primary" id="countdown-hours">00</div>
+                    <div class="text-gray-600">Hours</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-4 w-20 md:w-24">
+                    <div class="text-3xl md:text-4xl font-bold text-primary" id="countdown-minutes">00</div>
+                    <div class="text-gray-600">Minutes</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-4 w-20 md:w-24">
+                    <div class="text-3xl md:text-4xl font-bold text-primary" id="countdown-seconds">00</div>
+                    <div class="text-gray-600">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="heading-font text-3xl md:text-4xl font-bold mb-6 text-primary">
+                        A Decade of <span class="text-secondary">Memories</span>
+                    </h2>
+                    <p class="text-gray-700 mb-4">
+                        It's hard to believe it's been 10 years since we tossed our caps in the air and stepped into the world beyond high school. So much has changed, yet the bonds we formed remain.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Join us as we reconnect, reminisce, and celebrate how far we've all come since those unforgettable days at KP.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-primary text-white rounded-full p-3">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">150+ Classmates</h4>
+                            <p class="text-gray-600">Expected to attend</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="polaroid">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="High school graduation" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Graduation Day</p>
+                        </div>
+                        <div class="polaroid mt-8">
+                            <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Football game" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Friday Night Lights</p>
+                        </div>
+                        <div class="polaroid">
+                            <img src="https://images.unsplash.com/photo-1498522271744-cdd435c13f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Prom night" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Prom Night</p>
+                        </div>
+                        <div class="polaroid mt-8">
+                            <img src="https://images.unsplash.com/photo-1529333166447-4f1c5c0d0a6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Yearbook signing" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Yearbook Signing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold mb-12 text-center text-primary">
+                Reunion <span class="text-secondary">Schedule</span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto relative">
+                <div class="border-l-2 border-secondary absolute h-full left-4 md:left-1/2 transform -translate-x-1/2"></div>
+                
+                <div class="mb-8 timeline-item pl-10 md:pl-0 md:w-1/2 ml-auto relative">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-secondary rounded-full p-2 mr-4">
+                                <i class="fas fa-glass-cheers text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary">Welcome Cocktails</h3>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>6:00 PM - 7:30 PM</span>
+                        </div>
+                        <p class="text-gray-700">
+                            Kick off the evening with drinks and light appetizers as we reconnect and catch up on the past decade.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mb-8 timeline-item pl-10 md:w-1/2 relative">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-secondary rounded-full p-2 mr-4">
+                                <i class="fas fa-utensils text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary">Dinner & Memories</h3>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>7:30 PM - 9:00 PM</span>
+                        </div>
+                        <p class="text-gray-700">
+                            Enjoy a delicious meal while we take a trip down memory lane with a special presentation of our high school years.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mb-8 timeline-item pl-10 md:pl-0 md:w-1/2 ml-auto relative">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-secondary rounded-full p-2 mr-4">
+                                <i class="fas fa-music text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary">Dance Party</h3>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>9:00 PM - Midnight</span>
+                        </div>
+                        <p class="text-gray-700">
+                            Dance the night away to the hits of our era and today's favorites. Who still has the best moves?
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item pl-10 md:w-1/2 relative">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-secondary rounded-full p-2 mr-4">
+                                <i class="fas fa-camera text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary">Photo Booth & Memories</h3>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-3">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>All Evening</span>
+                        </div>
+                        <p class="text-gray-700">
+                            Capture new memories with a professional photo booth and browse through our memorabilia display.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold mb-12 text-center text-primary">
+                Throwback <span class="text-secondary">Gallery</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-lg shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Football game" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-bold">Friday Night Lights</h3>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1498522271744-cdd435c13f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Prom night" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-bold">Prom Night</h3>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Graduation" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-bold">Graduation Day</h3>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1529333166447-4f1c5c0d0a6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Yearbook" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-bold">Yearbook Signing</h3>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1541823709867-1b206113eafd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Basketball" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-bold">Basketball Champions</h3>
+                    </div>
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-lg group relative">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Group photo" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <h3 class="text-white text-xl font-bold">Senior Trip</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition duration-300 flex items-center mx-auto">
+                    <i class="fas fa-images mr-2"></i> View Full Gallery
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-6">
+                    Will You <span class="text-secondary">Join Us</span>?
+                </h2>
+                <p class="text-xl mb-10 max-w-2xl mx-auto">
+                    Let us know if you'll be attending our 10-year reunion celebration. We can't wait to see you!
+                </p>
+                
+                <form class="bg-white rounded-lg shadow-xl p-8 text-gray-800 max-w-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-left text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-left text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="guests" class="block text-left text-gray-700 font-medium mb-2">Number of Guests</label>
+                        <select id="guests" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label class="block text-left text-gray-700 font-medium mb-4">Will you be attending?</label>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="attending" value="yes" class="form-radio text-secondary focus:ring-secondary" checked>
+                                <span class="ml-2">Absolutely! Wouldn't miss it</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="attending" value="no" class="form-radio text-secondary focus:ring-secondary">
+                                <span class="ml-2">Regretfully can't make it</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block text-left text-gray-700 font-medium mb-2">Message (Optional)</label>
+                        <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="bg-secondary text-primary font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 w-full sm:w-auto">
+                        Submit RSVP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="heading-font text-3xl md:text-4xl font-bold mb-6 text-primary">
+                        Event <span class="text-secondary">Location</span>
+                    </h2>
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-map-marker-alt text-secondary text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Springfield Grand Hotel</h3>
+                                <p class="text-gray-700">123 Alumni Avenue, Springfield, ST 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="far fa-calendar-alt text-secondary text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Saturday, June 15, 2024</h3>
+                                <p class="text-gray-700">6:00 PM to Midnight</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        The Springfield Grand Hotel offers special room rates for reunion attendees. Mention "KPHS Reunion" when booking.
+                    </p>
+                    <a href="#" class="bg-primary text-white font-bold px-6 py-2 rounded-full hover:bg-green-800 transition duration-300 inline-flex items-center">
+                        <i class="fas fa-hotel mr-2"></i> Book Your Room
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="rounded-lg overflow-hidden shadow-xl h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256627966!2d-73.9878449241647!3d40.74844097138885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689871281813!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-graduation-cap text-3xl text-secondary"></i>
+                        <span class="heading-font text-2xl font-bold">Class of 2015</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">King Philip High School</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">Questions? Contact the reunion committee:</p>
+                    <a href="mailto:reunion@springfield2015.com" class="text-secondary hover:underline">reunion@springfield2015.com</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 KPHS Class of 2015. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const reunionDate = new Date("September 14, 2025 18:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = reunionDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown-days").innerHTML = days.toString().padStart(2, "0");
+            document.getElementById("countdown-hours").innerHTML = hours.toString().padStart(2, "0");
+            document.getElementById("countdown-minutes").innerHTML = minutes.toString().padStart(2, "0");
+            document.getElementById("countdown-seconds").innerHTML = seconds.toString().padStart(2, "0");
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown-days").innerHTML = "00";
+                document.getElementById("countdown-hours").innerHTML = "00";
+                document.getElementById("countdown-minutes").innerHTML = "00";
+                document.getElementById("countdown-seconds").innerHTML = "00";
+            }
+        }
+        
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Form submission
+        const rsvpForm = document.querySelector('form');
+        if (rsvpForm) {
+            rsvpForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your RSVP! We look forward to seeing you at the reunion.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
