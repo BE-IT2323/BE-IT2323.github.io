@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.heading-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.bg-primary {
+    background-color: #1a5632;
+}
+
+.bg-secondary {
+    background-color: #d4af37;
+}
+
+.text-primary {
+    color: #1a5632;
+}
+
+.text-secondary {
+    color: #d4af37;
+}
+
+.border-secondary {
+    border-color: #d4af37;
+}
+
+.hover\:bg-secondary:hover {
+    background-color: #d4af37;
+}
+
+.hover\:text-secondary:hover {
+    color: #d4af37;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #d4af37;
+    border: 4px solid #1a5632;
+}
+
+.polaroid {
+    background: white;
+    padding: 15px 15px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: rotate(2deg);
+    transition: all 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(even):hover {
+    transform: rotate(0deg) scale(1.05);
+}
