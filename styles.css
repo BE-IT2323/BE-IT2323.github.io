@@ -28,6 +28,14 @@ body {
     border-color: #d4af37;
 }
 
+.hover\:bg-primary:hover {
+    background-color: #1a5632;
+}
+
+.hover\:text-primary:hover {
+    color: #1a5632;
+}
+
 .hover\:bg-secondary:hover {
     background-color: #d4af37;
 }
@@ -44,8 +52,7 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #d4af37;
-    border: 4px solid #1a5632;
+    background: #1a5632;
 }
 
 .polaroid {
@@ -66,4 +73,23 @@ body {
 
 .polaroid:nth-child(even):hover {
     transform: rotate(0deg) scale(1.05);
+}
+
+.announcement-slide {
+    transition: transform 0.5s ease-in-out;
+}
+
+.announcement-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
 }

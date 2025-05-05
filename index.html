@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KPHS 2015 - 10 Year Reunion</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -16,7 +20,7 @@
                 <i class="fas fa-graduation-cap text-3xl text-secondary"></i>
                 <span class="heading-font text-2xl font-bold">KPHS Class of 2015</span>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
+            <div class="hidden md:flex items-center space-x-8 font-bold">
                 <a href="#home" class="hover:text-secondary transition">Home</a>
                 <a href="#about" class="hover:text-secondary transition">About</a>
                 <a href="#schedule" class="hover:text-secondary transition">Schedule</a>
@@ -50,12 +54,99 @@
                 Celebrating a decade of memories, achievements, and friendships since we walked those halls together.
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#rsvp" class="bg-secondary text-primary font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition duration-300 transform hover:scale-105">
+                <a href="#rsvp" class="bg-secondary text-white font-bold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition duration-300 transform hover:scale-105">
                     RSVP Now
                 </a>
                 <a href="#gallery" class="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition duration-300 transform hover:scale-105">
                     Memory Lane
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcement Section  -->
+    <section class="bg-white flex items-center justify-center p-6">
+        <div class="max-w-4xl w-full mx-auto">
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-primary p-6 flex justify-between items-center">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                            <i class="fas fa-bullhorn text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-white text-2xl font-bold">Latest <span class="text-secondary">Announcements</span></h2>
+                        <span class="announcement-badge bg-secondary text-white text-xs font-bold px-2 py-1 rounded-full ml-2">NEW</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button id="prev-btn" class="bg-white/20 hover:bg-white/30 text-white rounded-full w-8 h-8 flex items-center justify-center transition">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button id="next-btn" class="bg-white/20 hover:bg-white/30 text-white rounded-full w-8 h-8 flex items-center justify-center transition">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <!-- <button id="close-btn" class="close-btn bg-white/20 hover:bg-white/30 text-white rounded-full w-8 h-8 flex items-center justify-center transition">
+                            <i class="fas fa-times"></i>
+                        </button> -->
+                    </div>
+                </div>
+                
+                <!-- Announcement Content -->
+                <div class="relative overflow-hidden h-64">
+                    <div id="announcement-container" class="flex h-full">
+                        <!-- Announcement 1 -->
+                        <div class="announcement-slide w-full flex-shrink-0 p-6 flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Update</span>
+                                <span class="text-gray-500 text-sm ml-3">May 5, 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">New Emails Created!</h3>
+                            <p class="text-gray-600 mb-4">We're excited to announce official emails have been created for the event admins. You can currently reach Ben Elliott at belliott@kphs2015.com</p>
+                            <div class="mt-auto">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition">
+                                    <a href="mailto:belliott@kphs2015.com">Reach out now!</a>
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Announcement 2 -->
+                        <div class="announcement-slide w-full flex-shrink-0 p-6 flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">In Progress</span>
+                                <span class="text-gray-500 text-sm ml-3">May 5, 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Currently in Progress!</h3>
+                            <p class="text-gray-600 mb-4">We are currently working on the following: Spreading awareness for the pending reunion, gathering photos/media for the website, and recruiting for the following roles: Main Contact/Administrator, Financial Manager/Treasurer, and Event Coordinator(s).</p>
+                            <div class="mt-auto">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition">
+                                    View Details <i class="fas fa-info-circle ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Announcement 3 -->
+                        <div class="announcement-slide w-full flex-shrink-0 p-6 flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Soon</span>
+                                <span class="text-gray-500 text-sm ml-3">May 5, 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">More Soon!</h3>
+                            <p class="text-gray-600 mb-4">More details and updates coming soon!</p>
+                            <div class="mt-auto">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition">
+                                    View Details <i class="fas fa-info-circle ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indicators -->
+                    <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                        <button class="indicator-btn w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition" data-index="0"></button>
+                        <button class="indicator-btn w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition" data-index="1"></button>
+                        <button class="indicator-btn w-2 h-2 rounded-full bg-gray-300 hover:bg-gray-400 transition" data-index="2"></button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -67,7 +158,7 @@
                 The Countdown Begins
             </h2>
             <p class="text-gray-600 mb-8 text-primary">
-                Not accurate as of 5-2-2025
+                *Not accurate as of 5-2-2025
             </p>
             <div class="flex justify-center space-x-4 md:space-x-8">
                 <div class="bg-white rounded-lg shadow-lg p-4 w-20 md:w-24">
@@ -109,8 +200,8 @@
                             <i class="fas fa-users text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">150+ Classmates</h4>
-                            <p class="text-gray-600">Expected to attend</p>
+                            <h4 class="font-bold text-gray-800">200+ Classmates</h4>
+                            <p class="text-gray-600">Expected to attend: ???</p>
                         </div>
                     </div>
                 </div>
@@ -141,10 +232,12 @@
     <!-- Schedule Section -->
     <section id="schedule" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="heading-font text-3xl md:text-4xl font-bold mb-12 text-center text-primary">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4 text-center text-primary">
                 Reunion <span class="text-secondary">Schedule</span>
-            </h2>
-            
+            </h2>            
+            <p class="text-gray-600 mb-12 text-primary text-center">
+                *Not accurate as of 5-2-2025
+            </p>
             <div class="max-w-3xl mx-auto relative">
                 <div class="border-l-2 border-secondary absolute h-full left-4 md:left-1/2 transform -translate-x-1/2"></div>
                 
@@ -285,7 +378,7 @@
                     Will You <span class="text-secondary">Join Us</span>?
                 </h2>
                 <p class="text-800 mb-6 italic">
-                    Not functional as of 5-2-2025
+                    *Not functional as of 5-2-2025
                 </p>
                 <p class="text-xl mb-10 max-w-2xl mx-auto">
                     Let us know if you'll be attending our 10-year reunion celebration. We can't wait to see you!
@@ -350,7 +443,7 @@
                         Event <span class="text-secondary">Location</span>
                     </h2>
                     <p class="text-gray-600 mb-8 text-primary">
-                        Not accurate as of 5-2-2025
+                        *Not accurate as of 5-2-2025
                     </p>
                     <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
                         <div class="flex items-start mb-4">
@@ -413,7 +506,7 @@
                 
                 <div class="text-center md:text-right">
                     <p class="text-gray-400">Questions? Contact the reunion committee:</p>
-                    <a href="mailto:reunion@springfield2015.com" class="text-secondary hover:underline">reunion@springfield2015.com</a>
+                    <a href="mailto:belliott@kphs2015.com" class="text-secondary hover:underline">belliott@kphs2015.com"</a>
                 </div>
             </div>
             

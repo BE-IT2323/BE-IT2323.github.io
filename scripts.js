@@ -59,3 +59,85 @@ if (rsvpForm) {
         this.reset();
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('announcement-container');
+    const slides = document.querySelectorAll('.announcement-slide');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const indicators = document.querySelectorAll('.indicator-btn');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    
+    // Set initial position
+    updateSlidePosition();
+    
+    // Next button click
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlidePosition();
+        updateIndicators();
+    });
+    
+    // Previous button click
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlidePosition();
+        updateIndicators();
+    });
+    
+    // Indicator click
+    indicators.forEach(indicator => {
+        indicator.addEventListener('click', function() {
+            currentIndex = parseInt(this.getAttribute('data-index'));
+            updateSlidePosition();
+            updateIndicators();
+        });
+    });
+    
+    // // Close button click
+    // closeBtn.addEventListener('click', function() {
+    //     document.querySelector('.max-w-4xl').style.display = 'none';
+    //     // In a real implementation, you might want to set a cookie
+    //     // so the announcement doesn't show again for this user
+    // });
+    
+    // Auto-advance slides every 10 seconds
+    let slideInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlidePosition();
+        updateIndicators();
+    }, 10000);
+    
+    // Pause auto-advance when hovering over container
+    container.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlidePosition();
+            updateIndicators();
+        }, 10000);
+    });
+    
+    function updateSlidePosition() {
+        const offset = -currentIndex * 100;
+        container.style.transform = `translateX(${offset}%)`;
+    }
+    
+    function updateIndicators() {
+        indicators.forEach((indicator, index) => {
+            if (index === currentIndex) {
+                indicator.classList.remove('bg-gray-300');
+                indicator.classList.add('bg-green-600', 'w-3');
+            } else {
+                indicator.classList.add('bg-gray-300');
+                indicator.classList.remove('bg-green-600', 'w-3');
+            }
+        });
+    }
+});
