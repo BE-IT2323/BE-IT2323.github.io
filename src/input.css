@@ -76,20 +76,26 @@ body {
 }
 
 .announcement-slide {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
-
-.announcement-badge {
-    animation: pulse 2s infinite;
+.announcement-slide.active {
+    transform: translateX(0);
+    opacity: 1;
 }
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.announcement-slide.next {
+    transform: translateX(100%);
+    opacity: 0;
 }
-
-.close-btn:hover {
-    transform: rotate(90deg);
-    transition: transform 0.3s ease;
+.announcement-slide.prev {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.dot.active {
+    background-color: #1a5632;
+}
+.announcement-container:hover .announcement-control {
+    opacity: 1;
+}
+.announcement-control {
+    transition: opacity 0.3s ease;
 }

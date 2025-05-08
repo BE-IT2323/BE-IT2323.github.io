@@ -61,83 +61,88 @@ if (rsvpForm) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('announcement-container');
     const slides = document.querySelectorAll('.announcement-slide');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const closeBtn = document.getElementById('close-btn');
-    const indicators = document.querySelectorAll('.indicator-btn');
-    
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.announcement-control:first-of-type');
+    const nextBtn = document.querySelector('.announcement-control:last-of-type');
     let currentIndex = 0;
-    const totalSlides = slides.length;
     
-    // Set initial position
-    updateSlidePosition();
+    // Auto-rotate announcements every 10 seconds
+    let slideInterval = setInterval(nextSlide, 10000);
     
-    // Next button click
-    nextBtn.addEventListener('click', function() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
-        updateIndicators();
-    });
-    
-    // Previous button click
-    prevBtn.addEventListener('click', function() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlidePosition();
-        updateIndicators();
-    });
-    
-    // Indicator click
-    indicators.forEach(indicator => {
-        indicator.addEventListener('click', function() {
-            currentIndex = parseInt(this.getAttribute('data-index'));
-            updateSlidePosition();
-            updateIndicators();
-        });
-    });
-    
-    // // Close button click
-    // closeBtn.addEventListener('click', function() {
-    //     document.querySelector('.max-w-4xl').style.display = 'none';
-    //     // In a real implementation, you might want to set a cookie
-    //     // so the announcement doesn't show again for this user
-    // });
-    
-    // Auto-advance slides every 10 seconds
-    let slideInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateSlidePosition();
-        updateIndicators();
-    }, 10000);
-    
-    // Pause auto-advance when hovering over container
-    container.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
-    
-    container.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateSlidePosition();
-            updateIndicators();
-        }, 10000);
-    });
-    
-    function updateSlidePosition() {
-        const offset = -currentIndex * 100;
-        container.style.transform = `translateX(${offset}%)`;
-    }
-    
-    function updateIndicators() {
-        indicators.forEach((indicator, index) => {
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active', 'next', 'prev');
+            
             if (index === currentIndex) {
-                indicator.classList.remove('bg-gray-300');
-                indicator.classList.add('bg-green-600', 'w-3');
+                slide.classList.add('active');
+            } else if (index === (currentIndex + 1) % slides.length) {
+                slide.classList.add('next');
+            } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
+                slide.classList.add('prev');
             } else {
-                indicator.classList.add('bg-gray-300');
-                indicator.classList.remove('bg-green-600', 'w-3');
+                slide.classList.add('next');
             }
         });
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
     }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlides();
+        resetInterval();
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlides();
+        resetInterval();
+    }
+    
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlides();
+        resetInterval();
+    }
+    
+    function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 10000);
+    }
+    
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+    });
+    
+    // Touch events for mobile swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    document.querySelector('.announcement-carousel').addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    document.querySelector('.announcement-carousel').addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            nextSlide();
+        }
+        if (touchEndX > touchStartX + 50) {
+            prevSlide();
+        }
+    }
+    
+    // Initialize
+    updateSlides();
 });
