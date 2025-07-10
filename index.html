@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="./src/output.css">
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -77,13 +77,13 @@
                     <div class="announcement-slide active absolute inset-0 flex flex-col md:flex-row p-6">
                         <div class="w-full md:w-1/2 flex items-center justify-center p-4">
                             <div class="bg-green-100 rounded-full p-4">
-                                <i class="fas fa-envelope text-5xl text-green-600"></i>
+                                <i class="fas fa-book-open text-5xl text-green-600"></i>
                             </div>
                         </div>
                         <div class="w-full md:w-1/2 flex flex-col justify-center p-4">
                             <span class="text-sm font-semibold text-green-500 mb-2">NEW FEATURE</span>
-                            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">New Emails Created!</h2>
-                            <p class="text-gray-600 mb-4">We're excited to announce official emails have been created for the event admins. You can currently reach Ben Elliott at belliott@kphs2015.com</p>
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Digital Yearbook Available</h2>
+                            <p class="text-gray-600 mb-4">The gallery section now has our 2015 yearbook pictures free to download!</p>
                             <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg self-start transition-colors">
                                 Learn More
                             </button>
@@ -100,7 +100,7 @@
                         <div class="w-full md:w-1/2 flex flex-col justify-center p-4">
                             <span class="text-sm font-semibold text-green-500 mb-2">IN PROGRESS</span>
                             <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Currently in Progress!</h2>
-                            <p class="text-gray-600 mb-4">We are currently working on the following: Spreading awareness for the pending reunion, filling up a mailing list, gathering photos/media for the website, and recruiting for the following roles: Main Contact/Administrator, Financial Manager/Treasurer, and Event Coordinator(s).</p>
+                            <p class="text-gray-600 mb-4">We are currently deciding on a location to host the event as well as the date and time that would work best for the most people.</p>
                             <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg self-start transition-colors">
                                 View Details
                             </button>
@@ -240,27 +240,27 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">200+ Classmates</h4>
-                            <p class="text-gray-600">Expected to attend: ???</p>
+                            <p class="text-gray-600">Expected to attend: 50-60 people</p>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-1/2 relative">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="polaroid">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="High school graduation" class="w-full h-48 object-cover">
-                            <p class="mt-2 text-gray-700">Graduation Day</p>
+                            <img src="./Images/KPYearbook-122.png" alt="High school class photo" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Class Photo</p>
                         </div>
                         <div class="polaroid mt-8">
-                            <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Football game" class="w-full h-48 object-cover">
-                            <p class="mt-2 text-gray-700">Friday Night Lights</p>
+                            <img src="./Images/KPYearbook-022.png" alt="Homecoming" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Homecoming</p>
                         </div>
                         <div class="polaroid">
-                            <img src="https://images.unsplash.com/photo-1498522271744-cdd435c13f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Prom night" class="w-full h-48 object-cover">
-                            <p class="mt-2 text-gray-700">Prom Night</p>
+                            <img src="./Images/KPYearbook-096.png" alt="Class fun" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Class fun</p>
                         </div>
                         <div class="polaroid mt-8">
-                            <img src="https://images.unsplash.com/photo-1529333166447-4f1c5c0d0a6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Yearbook signing" class="w-full h-48 object-cover">
-                            <p class="mt-2 text-gray-700">Yearbook Signing</p>
+                            <img src="./Images/KPYearbook-021.png" alt="Spirit Days" class="w-full h-48 object-cover">
+                            <p class="mt-2 text-gray-700">Spirit Days</p>
                         </div>
                     </div>
                 </div>
@@ -364,47 +364,46 @@
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="overflow-hidden rounded-lg shadow-lg group relative">
-                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Football game" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <img src="./Images/KPYearbook-122.png" alt="Football game" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="text-white text-xl font-bold">Friday Night Lights</h3>
+                        <h3 class="text-white text-xl font-bold">Class Photo</h3>
                     </div>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg group relative">
-                    <img src="https://images.unsplash.com/photo-1498522271744-cdd435c13f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Prom night" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <img src="./Images/KPYearbook-021.png" alt="Spirit Days" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="text-white text-xl font-bold">Prom Night</h3>
+                        <h3 class="text-white text-xl font-bold">Spirit Days</h3>
                     </div>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg group relative">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Graduation" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <img src="./Images/KPYearbook-022.png" alt="Homecoming" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="text-white text-xl font-bold">Graduation Day</h3>
+                        <h3 class="text-white text-xl font-bold">Homecoming</h3>
                     </div>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg group relative">
-                    <img src="https://images.unsplash.com/photo-1529333166447-4f1c5c0d0a6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Yearbook" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <img src="./Images/KPYearbook-042.png" alt="Administration & Faculty" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="text-white text-xl font-bold">Yearbook Signing</h3>
+                        <h3 class="text-white text-xl font-bold">Administration & Faculty</h3>
                     </div>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg group relative">
-                    <img src="https://images.unsplash.com/photo-1541823709867-1b206113eafd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Basketball" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <img src="./Images/KPYearbook-043.png" alt="More Faculty" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="text-white text-xl font-bold">Basketball Champions</h3>
+                        <h3 class="text-white text-xl font-bold">More Faculty</h3>
                     </div>
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-lg group relative">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Group photo" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <img src="./Images/KPYearbook-096.png" alt="2015 photos" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <h3 class="text-white text-xl font-bold">Senior Trip</h3>
+                        <h3 class="text-white text-xl font-bold">2015 photos</h3>
                     </div>
                 </div>
             </div>
-            
             <div class="text-center mt-10">
-                <button class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition duration-300 flex items-center mx-auto">
-                    <i class="fas fa-images mr-2"></i> View Full Gallery
-                </button>
+                <a href="https://drive.google.com/drive/folders/1yRk6HB7VFUn_5qL9VAQoAyOcB2DoDl3o?usp=drive_link" target="_blank" class="bg-primary text-white font-bold px-8 py-3 rounded-full hover:text-secondary transition duration-300 transform hover:scale-105">
+                    Download Full Yearbook
+                </a>
             </div>
         </div>
     </section>
