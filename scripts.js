@@ -8,7 +8,7 @@ mobileMenuButton.addEventListener('click', () => {
 
 // Countdown Timer
 function updateCountdown() {
-    const reunionDate = new Date("November 28, 2025 18:00:00").getTime();
+    const reunionDate = new Date("November 28, 2025 19:00:00").getTime();
     const now = new Date().getTime();
     const distance = reunionDate - now;
     
