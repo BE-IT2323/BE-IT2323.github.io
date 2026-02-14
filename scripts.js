@@ -31,7 +31,7 @@ function updateCountdown() {
     }
 }
 
-#updateCountdown();
+// updateCountdown();
 const countdownTimer = setInterval(updateCountdown, 1000);
 
 // Smooth scrolling for navigation
